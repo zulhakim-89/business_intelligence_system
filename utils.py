@@ -2,22 +2,39 @@ import pandas as pd
 import numpy as np
 import os
 import json
+import streamlit as st  # <--- Added this to access Cloud Secrets
 from openai import OpenAI
 from dotenv import load_dotenv
 
 load_dotenv()
 
-# --- 1. AI STRATEGIC ADVICE (The Upgrade) ---
+# --- HELPER: GET KEY SAFELY ---
+def get_api_key():
+    """Tries to get the API key from Environment (Local) or Secrets (Cloud)"""
+    # 1. Try Local .env
+    key = os.getenv("OPENAI_API_KEY")
+    if key:
+        return key
+    
+    # 2. Try Streamlit Cloud Secrets
+    try:
+        return st.secrets["OPENAI_API_KEY"]
+    except:
+        return None
+
+# --- 1. AI STRATEGIC ADVICE ---
 def get_strategic_advice(context_text, analysis_type="forecast"):
     """
     Sends data to OpenAI to get a strategic business insight.
-    analysis_type: 'forecast' or 'analytics'
     """
     try:
-        client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+        api_key = get_api_key()
+        if not api_key:
+            return "⚠️ Error: OpenAI API Key is missing. Check .env or Streamlit Secrets."
+            
+        client = OpenAI(api_key=api_key) # <--- Explicitly pass the key
         
         if analysis_type == "forecast":
-            # UPGRADED PROMPT: Asking for structured, professional report
             system_role = """
             You are an Operations Director presenting a forecast to the CEO. 
             Format your response using Markdown. 
@@ -27,7 +44,6 @@ def get_strategic_advice(context_text, analysis_type="forecast"):
             3. **🚀 Strategic Action Plan**: Provide 2-3 specific, actionable bullet points for the manager.
             """
         else:
-            # Analytics Prompt (Already working well)
             system_role = "You are a Business Analyst. Summarize the yearly performance, highlight the biggest win, and suggest one improvement area. Use bold headers and bullet points."
 
         response = client.chat.completions.create(
@@ -46,7 +62,12 @@ def get_strategic_advice(context_text, analysis_type="forecast"):
 def get_ai_extraction(text_input):
     """Uses OpenAI to convert raw text into structured JSON"""
     try:
-        client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+        api_key = get_api_key()
+        if not api_key:
+            return None
+
+        client = OpenAI(api_key=api_key) # <--- Explicitly pass the key
+        
         prompt = f"""
         Extract catering order details into JSON.
         Fields:

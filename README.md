@@ -52,7 +52,7 @@ cd business_intelligence_system
 
 2. Install Dependencies
 
-Bash
+```bash
 
 pip install -r requirements.txt
 3. Configure Secrets (Local) Create a .streamlit/secrets.toml file in the root directory:
@@ -60,7 +60,7 @@ pip install -r requirements.txt
 Ini, TOML
 
 OPENAI_API_KEY = "sk-proj-..."
-APP_PASSWORD = "admin"
+APP_PASSWORD = "****"
 4. Run the Application
 
 Bash

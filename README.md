@@ -45,7 +45,7 @@
 
 ### 💻 Installation & Setup
 
-**1. Clone the Repository**
+1. Clone the Repository
 ```bash
 git clone [https://github.com/zulhakim-89/business_intelligence_system.git](https://github.com/zulhakim-89/business_intelligence_system.git)
 cd business_intelligence_system

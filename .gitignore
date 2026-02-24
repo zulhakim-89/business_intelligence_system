@@ -2,3 +2,12 @@
 venv/
 __pycache__/
 .streamlit/
+
+# Demo/presentation files
+*.webm
+*.mp4
+capture_*.py
+record_video.py
+presentation.html
+screenshots/
+video_output/

@@ -9,8 +9,6 @@ from tabs.order import render_order
 st.set_page_config(page_title="Zulja Operations OS", layout="wide", page_icon="🍱")
 
 def main():
-    st.set_page_config(page_title="Zulja Operations OS", layout="wide", page_icon="🍱")
-    
     # --- 🔐 SECURITY CHECK ---
     # Check if the user is already logged in
     if "authenticated" not in st.session_state:

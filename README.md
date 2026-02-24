@@ -1,4 +1,4 @@
-#  AI-Powered Catering Operations Platform
+# 🍱 AI-Powered Catering Operations Platform
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/)
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
@@ -45,46 +45,57 @@
 
 ### 💻 Installation & Setup
 
-1. Clone the Repository
+**1. Clone the Repository**
 ```bash
-git clone [https://github.com/zulhakim-89/business_intelligence_system.git](https://github.com/zulhakim-89/business_intelligence_system.git)
+git clone https://github.com/zulhakim-89/business_intelligence_system.git
 cd business_intelligence_system
+```
 
-2. Install Dependencies
-
+**2. Install Dependencies**
 ```bash
-
 pip install -r requirements.txt
-3. Configure Secrets (Local) Create a .streamlit/secrets.toml file in the root directory:
+```
 
-Ini, TOML
+**3. Configure Secrets (Local)**
 
+Create a `.streamlit/secrets.toml` file in the root directory:
+```toml
 OPENAI_API_KEY = "sk-proj-..."
 APP_PASSWORD = "****"
-4. Run the Application
+```
 
-Bash
-
+**4. Run the Application**
+```bash
 streamlit run app.py
-📂 Project Structure
-The project follows a modular "Senior Dev" architecture for maintainability:
+```
 
-Plaintext
+---
 
-├── app.py                  # Main Entry Point & Security Logic
-├── utils.py                # Helper Functions (AI, Data Loading)
-├── cleaned_revenue_data.csv # Database (CSV persistence for POC)
-├── tabs/                   # Modular Page Logic
-│   ├── analytics.py        # Dashboard & Charts
-│   ├── forecast.py         # ML Models & LLM Advice
-│   ├── schedule.py         # CRUD Operations
-│   └── order.py            # AI WhatsApp Extraction
-└── requirements.txt        # Dependencies
-⚠️ Deployment Note
-This application is deployed as a Proof-of-Concept (POC) for the Certified AI Engineer (CAIE™) Final Exam.
+### 📂 Project Structure
 
-Data Persistence: Uses a CSV file system. In production, this would be replaced by PostgreSQL/Supabase.
+The project follows a modular architecture for maintainability:
 
-Demo Access: Please contact the developer for the demo password.
+```
+├── app.py                    # Main Entry Point & Security Logic
+├── utils.py                  # Helper Functions (AI, Data Loading)
+├── cleaned_revenue_data.csv  # Database (CSV persistence for POC)
+├── tabs/                     # Modular Page Logic
+│   ├── analytics.py          # Dashboard & Charts
+│   ├── forecast.py           # ML Models & LLM Advice
+│   ├── schedule.py           # CRUD Operations
+│   └── order.py              # AI WhatsApp Extraction
+└── requirements.txt          # Dependencies
+```
 
-Created by Zulhakim | January 2026
+---
+
+### ⚠️ Deployment Note
+
+This application is deployed as a **Proof-of-Concept (POC)** for the **Certified AI Engineer (CAIE™) Final Exam**.
+
+* **Data Persistence:** Uses a CSV file system. In production, this would be replaced by PostgreSQL/Supabase.
+* **Demo Access:** Please contact the developer for the demo password.
+
+---
+
+*Created by Zulhakim | February 2026*
